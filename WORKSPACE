@@ -13,7 +13,7 @@ android_ndk_repository(
 git_repository(
     name = "org_pubref_rules_kotlin",
     remote = "https://github.com/pubref/rules_kotlin.git",
-    tag = "v0.2.1", # update as needed
+    tag = "v0.2.2",
 )
 load("@org_pubref_rules_kotlin//kotlin:rules.bzl", "kotlin_repositories")
 kotlin_repositories()

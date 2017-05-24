@@ -21,4 +21,7 @@ android_library(
 kotlin_library(
     name = "main",
     srcs = glob(["*.kt"]),
+    deps = [
+        "@bazel_tools//tools/android:sdk",
+    ]
 )
