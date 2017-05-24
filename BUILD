@@ -16,12 +16,12 @@ android_binary(
 kotlin_library(
     name = "main",
     srcs = glob(["*.kt"]),
-#    jars = []
     java_deps = [
         ":androidsdk"
-#        ":libresources.jar",
-#        ":resources",
-        ":resources_import",
+
+        # blaze-bin/resources_resources.jar has the R.* classes this target
+        # needs to compile, but it's not exposed.
+        ":resources_resources.jar",
     ],
 )
 
@@ -31,13 +31,6 @@ java_import(
     jars = [
         "//tools/defaults:android_jar",
     ]
-)
-
-java_import(
-    name = "resources_import",
-    jars = [
-        ":resources_resources.jar",
-    ],
 )
 
 android_library(
