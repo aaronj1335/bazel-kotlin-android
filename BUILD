@@ -14,7 +14,7 @@ kotlin_library(
     name = "main",
     srcs = glob(["*.kt"]),
     java_deps = [
-        "androidsdk"
+        ":androidsdk"
     ]
 )
 
