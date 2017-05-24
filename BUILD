@@ -20,6 +20,7 @@ kotlin_library(
 
 java_import(
     name = "androidsdk",
+    neverlink = 1,
     jars = [
         "@androidsdk//:platforms/android-25/android.jar",
     ]
