@@ -7,21 +7,20 @@ android_binary(
     resource_files = glob(["res/**"]),
     deps = [
        ":main_kt"
-
-       # This works if I comment out the dep above and use this instead
-       # ":java_main"
     ]
-)
-
-android_library(
-    name = "java_main",
-    srcs = glob(["MainActivity.java"]),
 )
 
 kotlin_library(
     name = "main",
     srcs = glob(["*.kt"]),
     java_deps = [
-        "@bazel_tools//tools/android:sdk",
+        "androidsdk"
+    ]
+)
+
+java_import(
+    name = "androidsdk",
+    jars = [
+        "@androidsdk//:platforms/android-25/android.jar",
     ]
 )
