@@ -22,6 +22,6 @@ java_import(
     name = "androidsdk",
     neverlink = 1,
     jars = [
-        "@androidsdk//:platforms/android-25/android.jar",
+        "//tools/defaults:android_jar",
     ]
 )
