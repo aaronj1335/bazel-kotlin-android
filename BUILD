@@ -4,9 +4,9 @@ android_binary(
     name = "app",
     custom_package = "com.aaronstacy.app",
     manifest = "AndroidManifest.xml",
-    resource_files = glob(["res/**"]),
     deps = [
-       ":main_kt"
+       ":main_kt",
+       ":resources",
     ]
 )
 
@@ -14,8 +14,11 @@ kotlin_library(
     name = "main",
     srcs = glob(["*.kt"]),
     java_deps = [
-        ":androidsdk"
-    ]
+        ":androidsdk",
+    ],
+    android_deps = [
+        ":resources",
+    ],
 )
 
 java_import(
@@ -24,4 +27,11 @@ java_import(
     jars = [
         "//tools/defaults:android_jar",
     ]
+)
+
+android_library(
+    name = "resources",
+    custom_package = "com.aaronstacy.app",
+    manifest = "AndroidManifest.xml",
+    resource_files = glob(["res/**"]),
 )
