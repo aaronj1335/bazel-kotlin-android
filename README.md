@@ -4,10 +4,23 @@ This is an Android app that's written in Kotlin and builds with Bazel.
 
     bazel build --strategy=KotlinCompile=standalone :app
 
-## This is almost cool
+### Android Studio tho
 
-I think this approaches the development fun of just opening an `index.html` file in a browser, but there are a couple pain points:
+The Intellij/Androd Studio Bazel plugin doesn't work for this project. When you try to add a bazel run configuration, or run the `:app` rule by right-clicking it in the BUILD file, it fails with [this error](https://gist.github.com/aaronj1335/2905f0ce8b59f0dfc27d55d46f77453a).
 
-* I don't know how to resolve `R.*` classes. I think if `kotlin_library` could depend on `android_library`, I could create an `android_library` target for resources that provided these.
+That being said, it's pretty straitforward to just run the build from the command line, and then you can still attach the Studio debugger to the running app.
+ 
+Here's an example `.bazelproject`:
 
-* The Intellij/Androd Studio Bazel plugin doesn't work for this project. When you try to add a bazel run configuration, or run the `:app` rule by right-clicking it in the BUILD file, it fails with [this error](https://gist.github.com/aaronj1335/2905f0ce8b59f0dfc27d55d46f77453a).
+```
+directories:
+  .
+
+targets:
+  //...:all
+
+android_sdk_platform: android-25
+
+build_flags:
+  --strategy=KotlinCompile=standalone
+```
