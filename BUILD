@@ -12,6 +12,7 @@ android_binary(
     deps = [
        ":main_kt",
        ":resources",
+       "@google_tasks//aar",
     ],
 )
 

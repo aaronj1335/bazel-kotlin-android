@@ -18,3 +18,11 @@ git_repository(
 
 load("@org_pubref_rules_kotlin//kotlin:rules.bzl", "kotlin_repositories")
 kotlin_repositories()
+
+load("@bazel_tools//tools/build_defs/repo:maven_rules.bzl", "maven_aar")
+maven_aar(
+    name = "google_tasks",
+    artifact = "com.google.android.gms:play-services-tasks:10.2.6",
+    settings = "//:settings.xml"
+)
+
