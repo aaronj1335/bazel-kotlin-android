@@ -10,14 +10,11 @@ android_ndk_repository(
     api_level=12,
 )
 
-# git_repository(
-#     name = "org_pubref_rules_kotlin",
-#     remote = "https://github.com/pubref/rules_kotlin.git",
-#     tag = "v0.2.2",
-# )
-local_repository(
+git_repository(
     name = "org_pubref_rules_kotlin",
-    path = "/Users/aaronstacy/Downloads/rules_kotlin",
+    remote = "https://github.com/pubref/rules_kotlin.git",
+    tag = "v0.3.1",
 )
+
 load("@org_pubref_rules_kotlin//kotlin:rules.bzl", "kotlin_repositories")
 kotlin_repositories()
